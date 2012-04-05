@@ -6,15 +6,26 @@
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script type="text/javascript" src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
   <script type="text/javascript" src="javascripts/application.js"></script>
+  <link rel="stylesheet" type="text/css" href="stylesheets/vendor/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/screen.css">
 </head>
 <body>
 
+  <h1>Feedback Widget</h1>
+
   <div id="content">
     <form id="feedback-form" action="#" method="post">
-      <div id="error-message"></div>
-      <label for="message">Message</label><textarea cols="40" rows="5" name="message"></textarea>
-      <label for="email">Email</label><input type="text" name="email" />
-      <button type="submit">Submit</button>
+      <div id="error-message" class="alert alert-error"></div>
+
+      <label for="message">Message</label>
+      <textarea cols="40" rows="5" name="message" id="message"></textarea>
+
+      <label for="email">Email</label>
+      <input type="text" name="email" id="email"/>
+
+      <div class="form-actions">
+        <input type="submit" class="btn" value="Send feedback"/>
+      </div>
     </form>
   </div>
 

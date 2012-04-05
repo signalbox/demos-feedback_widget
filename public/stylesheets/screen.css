@@ -1,4 +1,8 @@
+html,
+body {
+  padding: 10px;
+}
 
-#error-message {
-  color: red;
+h1 {
+  margin-bottom: 20px;
 }

@@ -19,20 +19,28 @@ $(function(){
     $('#feedback-form').submit(function() {
       var data = {
         message : $("textarea[name=message]").val(),
-        email   : $("input[name=email]").val(),
+        email   : $("input[name=email]").val()
       };
+
       postFeedback(data);
+
       return false;
     });
 
+    var $error = $('#error-message').hide();
+
     function postFeedback(data) {
       var onSuccessHandler = function(response) {
+        $error.hide();
+
         $('#content').html("Thanks for your feedback!");
       };
 
       var onErrorHandler = function(xhr) {
+        $error.hide();
+
         if (xhr.status == 422) {
-          $('#error-message').html('Oops. Please supply a message and a valid email.');
+          $error.html('Oops. Please supply a message and a valid email.').show();
         }
         else {
           alert(JSON.parse(xhr.responseText).message);
@@ -46,6 +54,6 @@ $(function(){
         success : onSuccessHandler,
         error   : onErrorHandler
       });
-    }
+    };
 
 });
